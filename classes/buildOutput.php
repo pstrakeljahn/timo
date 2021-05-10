@@ -23,7 +23,8 @@ class BuildOutputClass {
                 $names = [];
                 foreach($CSV as $key){
                     $exploded = explode("__",$key);
-                    array_push($names, $exploded[0] . " " . $exploded[1]);
+                    $keyShort = count($exploded) > 2 ? $exploded[0] . " " . $exploded[1] : 'unknown';
+                    array_push($names, $keyShort);
                 }
                 $i++;
                 continue;
