@@ -4,8 +4,6 @@ namespace BuildOutput;
 
 use ParseCSV\CSVServiceClass;
 
-use function PHPSTORM_META\type;
-
 class BuildOutputClass
 {
     public function getCSV($filepath, $datapoints, $single, $mergeSize)
