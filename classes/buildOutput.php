@@ -43,8 +43,11 @@ class BuildOutputClass {
         }
         
         // Sortueren nach Key
-        ksort($arrExport);
-        return $this->convertToPercent($arrExport);
+        if(ksort($arrExport)){
+            return $this->convertToPercent($arrExport);
+        } else {
+            return 'Da lief was schief!';
+        }
     }
 
     public function convertToPercent($array){
