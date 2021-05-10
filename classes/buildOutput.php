@@ -10,6 +10,9 @@ class BuildOutputClass {
     {
         $csvHelper = new CSVServiceClass();
         $arrCSV = $csvHelper->CSVtoArray($filepath, ";");
+        if(!$arrCSV){
+            return 'Datei nicht gefunden';
+        }
         $i = 0;
         $arrExport = [];
 
