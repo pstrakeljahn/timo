@@ -38,6 +38,7 @@ class BuildOutputClass
                 $key = "0" . $key;
             }
 
+            // Es muss hier zwischen single true/flase unterschieden werden
             if (!$single) {
                 if (!isset($datapoints_new)) {
                     $datapoints_new = $datapoints;
@@ -73,14 +74,14 @@ class BuildOutputClass
         $arrExport_new = [];
 
         foreach ($array as $key => $entry) {
-            $test = array_sum(array_values($entry));
+            $all = array_sum(array_values($entry));
             $count = [];
             foreach (array_values($entry) as $value) {
                 if ($value === "") {
                     $value = 0;
                 }
                 // Ausgabe in Prozent
-                array_push($count, ($value / $test) * 100);
+                array_push($count, ($value / $all) * 100);
             }
 
             $arrExport_new[$key] = array_combine(array_keys($entry), $count);
@@ -95,6 +96,7 @@ class BuildOutputClass
             $key = $i < 10 ? "0" . $i . "S" : $i . "S";
             ksort($array[$key]);
             if (!count($keys)) {
+                // Einmaliges Sammeln der Keys
                 $keys = array_keys($array[$key]);
             }
         }
@@ -104,6 +106,7 @@ class BuildOutputClass
             $start = array_keys($slicedArray)[0];
             $end = array_keys($slicedArray)[$mergeSize - 1];
 
+            // Bisschen unperformant. Du liest aber auch wohl nicht Milliarden an Datenpunkten ein!
             foreach ($slicedArray as $singleArray) {
                 $k = 0;
                 while ($k < count($singleArray)) {
@@ -123,6 +126,7 @@ class BuildOutputClass
             $array = array_slice($array, $mergeSize);
         }
 
+        // Für den Fall, dass die Anzahl der zusammengehörenden Datenpunkte nicht durch die Gesamtzhal teilbar ist ohne Rest
         if (count($array)) {
             $start = array_keys($slicedArray)[0];
             $end = array_keys($slicedArray)[count($array) - 1];
