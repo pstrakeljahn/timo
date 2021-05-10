@@ -102,6 +102,7 @@ class BuildOutputClass
         }
 
         while (count($array) >= $mergeSize) {
+            unset($res);
             $slicedArray = array_slice($array, 0, $mergeSize);
             $start = array_keys($slicedArray)[0];
             $end = array_keys($slicedArray)[$mergeSize - 1];
