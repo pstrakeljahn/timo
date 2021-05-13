@@ -6,7 +6,7 @@ include "settings.php";
 
 $analyseData = new Analyser();
 $arrAnalyse = $analyseData->analyse();
-echo '<h1>Auswertung der Daten</h1>';
+echo '<h1>Auswertung der Daten, min Lütt :*</h1>';
 foreach($arrAnalyse as $key => $analyse){
     echo '<h2><b><u>' . $key . "</b></u></h2>";
     echo '
