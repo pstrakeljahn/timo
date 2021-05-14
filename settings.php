@@ -53,7 +53,7 @@ class Analyser
         }
 
         fclose($fp);
-        return 'data_' . $formatedTime . '.csv successfully created!';
+        return 'data_' . $formatedTime . '.csv was successfully created!';
     }
 }
 
