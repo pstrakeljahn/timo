@@ -10,11 +10,14 @@ $analyseData = new Analyser();
 $arrAnalyse = $analyseData->analyse();
 echo '<h1>Auswertung der Daten, min Lütt :*</h1>';
 echo '<div style="float:right; margin-right: 50px;"><a href="analyse.php?csvExport=true">Export CSV-File</a></div>';
-
+$exportSuccessfull = '';
 if (isset($_GET['csvExport']))
 {
-    $analyseData->createCSV();
+    $exportSuccessfull = $analyseData->createCSV();
 }
+echo '<br><div style="float:right; margin-right: 50px;">';
+echo $exportSuccessfull;
+echo '</div>';
 
 foreach ($arrAnalyse as $key => $analyse)
 {
