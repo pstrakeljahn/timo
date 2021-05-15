@@ -15,7 +15,7 @@ class Analyser
     // DECIMALS: Stellt die Nachkommastellen ein.
     // SHOWDNASEQUENZ: Zeigt die DNA Sequenz im Browser an. Sonst nur in der csv
     const FILEPATH = "Gattung_Salami_TB.csv";
-    const DATAPOINTS = 6;
+    const DATAPOINTS = 5;
     const SINGLE = false;
     const MERGESIZE = 6;
     const DECIMALS = 3;
